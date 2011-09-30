@@ -2,6 +2,7 @@ var timmyo;//timer for zooming out
 var timmyi;//timer for zooming in
 var zio,zii;//the images at the top that actually change size
 var iei,ieo;//a placeholder for the image being zoomed in and zoomed out
+var maxsize;//how much space do we have to work with
 var izi = 0;//size of image zooming in
 var izo = 250;//size of image zooming out
 var zoomspeed = 10;//ms pause between zoom steps
@@ -17,6 +18,8 @@ function init()
     //hide the 2 zooming images for now
     zii.style.visibility = 'hidden';
     zio.style.visibility = 'hidden';
+    
+    maxsize = zii.parentElement.offsetHeight;
     
     //put all of the thumbnails into an array then loop through the array to set the onmouse... events
     var ic = ie.children;
@@ -35,7 +38,7 @@ function init()
             zii.style.height = izi + 'px';
             
             //setting the bottom value of the style wasn't working so offset from the top instead
-            zii.style.marginTop = (250 - izi) + 'px';
+            zii.style.marginTop = (maxsize - izi) + 'px';
             
             //get the offset based on the current size of the images
             scratch = iei.offsetLeft - iei.parentElement.offsetLeft - (zii.offsetWidth / 2) + (iei.offsetWidth / 2);
@@ -70,10 +73,10 @@ function startzoom()
     window.clearTimeout(timmyi);
     izi += 10;
     zii.style.height = izi + 'px';
-    zii.style.marginTop = (250 - izi) + 'px';
+    zii.style.marginTop = (maxsize - izi) + 'px';
     scratch = iei.offsetLeft - iei.parentElement.offsetLeft - (zii.offsetWidth / 2) + (iei.offsetWidth / 2);
             zii.style.marginLeft = scratch<0?0:scratch + 'px';
-    if(izi < 250)timmyi = window.setTimeout('startzoom()',zoomspeed);
+    if(izi < maxsize)timmyi = window.setTimeout('startzoom()',zoomspeed);
 }
 
 function stopzoom()
@@ -81,7 +84,7 @@ function stopzoom()
     window.clearTimeout(timmyo);
     izo -= 10;
     zio.style.height = izo + 'px';
-    zio.style.marginTop = (250 - izo) + 'px';
+    zio.style.marginTop = (maxsize - izo) + 'px';
     scratch = ieo.offsetLeft - ieo.parentElement.offsetLeft - (zio.offsetWidth / 2) + (ieo.offsetWidth / 2);
             zio.style.marginLeft = scratch<0?0:scratch + 'px';
     if(izo > 0)timmyo = window.setTimeout('stopzoom()',zoomspeed);

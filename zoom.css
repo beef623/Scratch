@@ -3,11 +3,11 @@ body    {margin:0;background-color:#555;color:#ccc;font:10pt verdana}
 h1      {font:1.2em verdana;font-weight:bold;padding-left:15px}
 
 #zoombox    {background-color:#999;border:1px solid #222;margin-left:100px;margin-right:100px}
-#bigzoom    {height:250px}
+#bigzoom    {height:300px}
 #smallzoom  {background-color:#777;padding:5px auto 5px auto}
 
 #smallzoom img  {width:80px;height:80px;margin-left:auto;margin-right:auto}
 #bigzoom div img    {position:relative;display:inline;height:250px;left:0px;bottom:0px;}
 
 #zl {position:relative;top:0;width:100%;height:100%;}
-#zr {position:relative;margin-top:-250px;width:100%;height:100%;}
+#zr {position:relative;margin-top:-300px;width:100%;height:100%;}

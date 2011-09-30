@@ -4,10 +4,10 @@ h1      {font:1.2em verdana;font-weight:bold;padding-left:15px}
 
 #zoombox    {background-color:#999;border:1px solid #222;margin-left:100px;margin-right:100px}
 #bigzoom    {height:250px}
-#smallzoom  {background-color:#777;padding:5px}
+#smallzoom  {background-color:#777;padding:5px auto 5px auto}
 
-#smallzoom img  {width:80px;height:80px}
+#smallzoom img  {width:80px;height:80px;margin-left:auto;margin-right:auto}
 #bigzoom div img    {position:relative;display:inline;height:250px;left:0px;bottom:0px;}
 
-#dl {position:absolute;display:inline;top:0;width:100%;height:100%;}
-#dr {position:absolute;display:inline;top:-250px;width:100%;height:100%;}
+#zl {position:relative;top:0;width:100%;height:100%;}
+#zr {position:relative;margin-top:-250px;width:100%;height:100%;}
